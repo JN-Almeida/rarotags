@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagsInput Component cria o snapshot do component 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiFormControl-root MuiTextField-root"
+  >
+    <div
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
