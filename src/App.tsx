@@ -6,10 +6,7 @@ const App: React.FC = () => {
     return items;
   }
 
-  const [tags, setTags] = useState<string[]>([
-    "contato@rarolabs.com.br",
-    "nao-responda@rarolabs.com.br"
-  ]);
+  const [tags, setTags] = useState<string[]>([]);
 
   return (
     <div className="App">
@@ -22,7 +19,11 @@ const App: React.FC = () => {
         placeholder="add Tags"
         label="tags"
         tags={tags}
+        setTags={setTags}
       />
+      <div>
+        {tags}
+      </div>
     </div>
   );
 }
