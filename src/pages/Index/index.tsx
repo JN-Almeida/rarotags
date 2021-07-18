@@ -23,8 +23,10 @@ const Index: React.FC = () => {
         tags={tags}
         setTags={setTags}
       />
-      <div>
-        {tags}
+      <div className="container-tags">
+        {tags.map((tag) => {
+            return <p>{tag}</p>
+        })}
       </div>
     </Container>
   );

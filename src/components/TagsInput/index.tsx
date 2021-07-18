@@ -2,6 +2,8 @@ import React, { KeyboardEvent, useEffect, useState } from 'react'
 import Chip from '@material-ui/core/Chip'
 import TextField from '@material-ui/core/TextField'
 
+import { Container } from './style';
+
 const emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export default function TagsInput(props) {
@@ -38,7 +40,7 @@ export default function TagsInput(props) {
   }
 
   return (
-    <>
+    <Container>
       <TextField
         InputProps={{
           startAdornment: selectedItem.map((item) => (
@@ -54,7 +56,7 @@ export default function TagsInput(props) {
       <button type="button" onClick={() => setTags(selectedItem)}>
         enviar
       </button>
-    </>
+    </Container>
   )
 }
 TagsInput.defaultProps = {
