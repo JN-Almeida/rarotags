@@ -1,5 +1,5 @@
 import React from 'react'
-import TagsInput from '@/TagsInput'
+import TagsInput from '@/components/TagsInput'
 import { cleanup, render } from '@testing-library/react'
 
 describe('TagsInput Component', () => {

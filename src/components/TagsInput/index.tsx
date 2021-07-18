@@ -2,7 +2,7 @@ import React, { KeyboardEvent, useEffect, useState } from 'react'
 import Chip from '@material-ui/core/Chip'
 import TextField from '@material-ui/core/TextField'
 
-const emailValidation = /\S+@\S+\.\S+/
+const emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export default function TagsInput(props) {
   const { onSelectTags, tags, setTags, ...other } = props
