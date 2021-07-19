@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import TagsInput from './components/TagsInput';
+import React from 'react';
 import Index from './pages/Index';
 
+import GlobalStyles from './globalStyles';
+
 const App: React.FC = () => {
-  function handleSelecetedTags(items: string[]) {
-    return items;
-  }
 
   return (
     <div className="App">
+      <GlobalStyles />
       <Index />
     </div>
   );

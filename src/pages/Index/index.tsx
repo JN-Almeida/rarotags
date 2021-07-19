@@ -16,6 +16,7 @@ const Index: React.FC = () => {
         onSelectTags={handleSelecetedTags}
         fullWidth
         variant="outlined"
+        title="tagInput"
         id="tags"
         name="tags"
         placeholder="add Tags"
@@ -25,7 +26,7 @@ const Index: React.FC = () => {
       />
       <div className="container-tags">
         {tags.map((tag) => {
-            return <p>{tag}</p>
+            return <span>{tag}</span>
         })}
       </div>
     </Container>

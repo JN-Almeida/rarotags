@@ -7,44 +7,43 @@ import { Container } from './style';
 const emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export default function TagsInput(props) {
-  const { onSelectTags, tags, setTags, ...other } = props
-  const [selectedItem, setSelectedItem] = useState<string[]>([])
-  const [inputValue, setInputValue] = useState<string>('')
-  useEffect(() => {
-    setSelectedItem(tags)
-  }, [tags])
+  const { onSelectTags, tags, setTags, ...other } = props;
+  const [selectedItem, setSelectedItem] = useState<string[]>([]);
+  const [inputValue, setInputValue] = useState<string>('');
 
   const handleKeyUp = (event: KeyboardEvent) => {
     const target = event.target as HTMLInputElement;
-    const value = target.value.trim()
+    const value = target.value.trim();
 
     if ((event.key === 'Enter' || event.key === 'Tab') && value !== '') {
       event.preventDefault()
       const allEmails = value.split(';').filter((mail: string) => {
-        const isSame = selectedItem.some((x) => x === mail)
-        return emailValidation.test(mail) && !isSame
+        const isSame = selectedItem.some((x) => x === mail);
+        return emailValidation.test(mail) && !isSame;
       })
-      setSelectedItem([...selectedItem, ...allEmails])
-      setInputValue('')
+      setSelectedItem([...selectedItem, ...allEmails]);
+      setInputValue('');
     }
 
     if (selectedItem.length && !value.length && event.key === 'Backspace') {
-      setSelectedItem(selectedItem.slice(0, selectedItem.length - 1))
+      setSelectedItem(selectedItem.slice(0, selectedItem.length - 1));
     }
   }
 
   const handleDelete = (item) => () => {
-    const newSelectedItem = [...selectedItem]
-    newSelectedItem.splice(newSelectedItem.indexOf(item), 1)
-    setSelectedItem(newSelectedItem)
+    const newSelectedItem = [...selectedItem];
+    newSelectedItem.splice(newSelectedItem.indexOf(item), 1);
+    setSelectedItem(newSelectedItem);
   }
 
   return (
     <Container>
       <TextField
+        data-testid="tagInput"
+        className="tagInput"
         InputProps={{
           startAdornment: selectedItem.map((item) => (
-            <Chip key={item} tabIndex={-1} label={item} onDelete={handleDelete(item)} />
+            <Chip key={item} tabIndex={-1} label={item} onDelete={handleDelete(item)}  />
           )),
         }}
         onKeyDown={handleKeyUp}
@@ -53,8 +52,12 @@ export default function TagsInput(props) {
         {...other}
       />
 
-      <button type="button" onClick={() => setTags(selectedItem)}>
-        enviar
+      <button 
+        type="button"
+        data-testid="tagBtn"
+        onClick={() => setTags(selectedItem)}
+      >
+        Enviar
       </button>
     </Container>
   )

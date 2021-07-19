@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    max-width: 50vw;
-    margin: 0 auto; 
-    height: 70vh;
+    width: 70vw;
+    margin: 30px auto;
     border-radius: 5px;
-    border: solid 1px #ccc;
     padding: 20px;
-    box-shadow: 0 10 0 #ccc;
+    box-shadow: 0 0 8px #ccc;
+
+    span{
+        margin: 10px;
+    }
 
     .container-tags {
-        margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
-        gap: 10px
     }
 `;
